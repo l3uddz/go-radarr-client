@@ -108,12 +108,12 @@ func (c Client) GetMovie(tmdbID int) (Movie, error) {
 }
 
 // GetMovieIMDB returns a movie via the internet movie database id
-func (c Client) GetMovieIMDB(imdbID int) (Movie, error) {
+func (c Client) GetMovieIMDB(imdbID string) (Movie, error) {
 	const endpoint = "/api/movie/lookup/imdb"
 
 	params := url.Values{}
 
-	params.Set("imdbId", strconv.Itoa(imdbID))
+	params.Set("imdbId", imdbID)
 
 	var result Movie
 
